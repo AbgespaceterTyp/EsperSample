@@ -45,10 +45,10 @@ public class EsperSample {
     }
 
     private static void setupSelectStatements(EPAdministrator cepAdm){
-        EPStatement royalFlushStatement = cepAdm.createEPL("select playerName,deck from GameEnd(deck='ROYAL_FLUSH')");
+        EPStatement royalFlushStatement = cepAdm.createEPL("select playerName, deck from GameEnd(deck='ROYAL_FLUSH')");
         royalFlushStatement.addListener(new GameEndListener());
 
-        EPStatement winOverviewStatement = cepAdm.createEPL("select playerName,count(playerName) as wins,sum(prize) as prize_sum from GameEnd.win:length(10) group by playerName");
+        EPStatement winOverviewStatement = cepAdm.createEPL("select playerName, count(playerName) as wins, sum(prize) as prize_sum from GameEnd.win:length_batch(10) group by playerName");
         winOverviewStatement.addListener(new GameEndListener());
 
         EPStatement maxPrizeStatement = cepAdm.createEPL("select playerName, sum(prize) as prize_sum from GameEnd.win:length(10) having sum(prize) > 2000000");
