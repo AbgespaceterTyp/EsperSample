@@ -9,6 +9,6 @@ public class KickOutListener implements UpdateListener{
         final Object prize_sum = newData[0].get("prize_sum");
         final Object playerName = newData[0].get("playerName");
 
-        System.out.println("------> Player '" + playerName + "' has won to much '"+ prize_sum +"' - kick him/her out!");
+        System.out.println("------> Player '" + playerName + "' has won too much '"+ prize_sum +"' - kick him/her out!");
     }
 }
